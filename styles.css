@@ -16,33 +16,22 @@ a { color: inherit; }
 
 .masthead {
   position: sticky; top: 0; z-index: 20; min-height: 74px; padding: 0 3vw;
-  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  display: flex; justify-content: space-between; align-items: center;
   background: color-mix(in srgb, var(--paper) 94%, transparent); border-bottom: 1px solid var(--ink);
   backdrop-filter: blur(12px);
 }
 .identity { display: flex; align-items: center; gap: 13px; width: max-content; text-decoration: none; text-transform: uppercase; font-size: 12px; font-weight: 700; letter-spacing: .12em; }
 .identity-mark { width: 34px; height: 34px; display: grid; place-items: center; color: white; background: var(--blue); font: 700 13px/1 Arial, sans-serif; letter-spacing: -.05em; }
-.jp { margin: 0; font: 18px Georgia, serif; letter-spacing: .18em; }
-.masthead nav { justify-self: end; display: flex; gap: 28px; align-items: center; font-size: 11px; text-transform: uppercase; letter-spacing: .12em; }
-.masthead nav a { text-decoration: none; }
-.text-button { border: 0; padding: 0; background: none; text-transform: uppercase; letter-spacing: .12em; cursor: pointer; }
+.header-count { margin: 0; font-size: 10px; text-transform: uppercase; letter-spacing: .13em; }
+.header-count span { color: var(--blue); }
 
-.hero { min-height: 720px; padding: 8vw 3vw 4vw; display: grid; grid-template-columns: 1fr 5fr 1.35fr; gap: 3vw; border-bottom: 1px solid var(--ink); position: relative; overflow: hidden; }
-.hero::after { content: ""; width: min(34vw, 520px); aspect-ratio: 1; position: absolute; right: 9vw; top: 7vw; border: 1px solid var(--blue); border-radius: 50%; opacity: .24; box-shadow: 0 0 0 60px rgba(36,82,209,.035), 0 0 0 120px rgba(36,82,209,.025); pointer-events: none; }
-.hero-number { position: relative; z-index: 1; color: var(--blue); font: 16px/1 Georgia, serif; }
-.hero-copy { position: relative; z-index: 1; align-self: end; }
+.hero { min-height: 330px; padding: 5vw 3vw 3vw; display: flex; justify-content: space-between; align-items: flex-end; gap: 3vw; border-bottom: 1px solid var(--ink); }
 .kicker { margin: 0 0 18px; color: var(--blue); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .17em; }
-h1 { max-width: 1000px; margin: 0; font: 400 clamp(60px, 8.1vw, 138px)/.86 Georgia, "Times New Roman", serif; letter-spacing: -.065em; }
-h1 em { color: var(--blue); font-weight: 400; }
-.hero-intro { max-width: 670px; margin: 40px 0 0; font: 18px/1.5 Georgia, serif; }
-.hero-meta { position: relative; z-index: 1; align-self: end; padding-bottom: 7px; }
-.hero-meta p { margin: 0; padding: 13px 0; border-top: 1px solid var(--ink); font-size: 9px; text-transform: uppercase; letter-spacing: .13em; }
-.hero-meta span { display: inline-block; min-width: 70px; color: var(--blue); font: 24px/1 Georgia, serif; letter-spacing: -.04em; text-transform: none; }
+h1 { margin: 0; color: var(--blue); font: 400 clamp(70px, 11vw, 180px)/.78 Georgia, "Times New Roman", serif; letter-spacing: -.07em; }
+.hero > p { margin: 0 0 5px; font-size: 10px; text-transform: uppercase; letter-spacing: .14em; white-space: nowrap; }
+.hero > p span { display: block; margin-bottom: 8px; color: var(--blue); font: 36px/1 Georgia, serif; letter-spacing: -.04em; }
 
-.catalogue { padding: 8vw 3vw 10vw; }
-.catalogue-head { display: grid; grid-template-columns: 2fr 1fr; gap: 3vw; align-items: end; margin-bottom: 54px; }
-.catalogue-head h2 { margin: 0; font: 400 clamp(56px, 7vw, 106px)/.85 Georgia, serif; letter-spacing: -.06em; }
-.catalogue-note { justify-self: end; max-width: 290px; margin: 0; font: 16px/1.5 Georgia, serif; }
+.catalogue { padding: 3vw 3vw 10vw; }
 .controls { position: sticky; top: 74px; z-index: 15; display: grid; grid-template-columns: minmax(260px, 1fr) 170px 150px 170px auto; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); background: var(--paper); }
 .controls label { min-width: 0; padding: 11px 14px; border-right: 1px solid var(--ink); }
 .controls label > span { display: block; margin-bottom: 7px; color: var(--soft); font-size: 8px; text-transform: uppercase; letter-spacing: .14em; }
@@ -78,9 +67,8 @@ h1 em { color: var(--blue); font-weight: 400; }
 .film-grid.list .film-copy p:last-child { text-align: right; }
 .empty-state { padding: 80px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); text-align: center; font: 28px Georgia, serif; }
 
-.footer { padding: 42px 3vw; display: grid; grid-template-columns: 1fr 1fr auto; gap: 5vw; align-items: end; color: white; background: var(--blue); }
+.footer { padding: 32px 3vw; display: flex; justify-content: space-between; gap: 5vw; align-items: end; color: white; background: var(--blue); }
 .footer p { margin: 5px 0 0; font-size: 10px; line-height: 1.5; }
-.footer-title { font: 28px/1 Georgia, serif !important; }
 .footer a { font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }
 .credits { max-width: 420px; }
 .credits img { width: 72px; filter: brightness(0) invert(1); }
@@ -93,7 +81,7 @@ dialog::backdrop { background: rgba(10,10,10,.72); backdrop-filter: blur(5px); }
 .dialog-layout figure { min-height: 620px; margin: 0; background: #d8d6cf; }
 .dialog-layout figure img { width: 100%; height: 100%; display: block; object-fit: cover; }
 .dialog-copy { align-self: center; padding: 70px 7%; }
-.dialog-copy h2, .about-dialog h2 { margin: 0; font: 400 clamp(40px, 5vw, 72px)/.9 Georgia, serif; letter-spacing: -.05em; }
+.dialog-copy h2 { margin: 0; font: 400 clamp(40px, 5vw, 72px)/.9 Georgia, serif; letter-spacing: -.05em; }
 .dialog-director { margin: 20px 0 0; color: var(--blue); font: 18px Georgia, serif; }
 .dialog-overview { margin: 32px 0; font: 15px/1.65 Georgia, serif; }
 .dialog-copy dl { display: grid; grid-template-columns: repeat(2, 1fr); margin: 0 0 30px; border-top: 1px solid var(--ink); }
@@ -101,30 +89,20 @@ dialog::backdrop { background: rgba(10,10,10,.72); backdrop-filter: blur(5px); }
 .dialog-copy dt { color: var(--soft); font-size: 8px; text-transform: uppercase; letter-spacing: .13em; }
 .dialog-copy dd { margin: 5px 0 0; font: 14px Georgia, serif; }
 .dialog-copy > a { color: var(--blue); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }
-.about-dialog { width: min(680px, calc(100% - 32px)); padding: 80px 7%; }
-.about-dialog > p:not(.kicker) { max-width: 520px; font: 16px/1.65 Georgia, serif; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
 @media (max-width: 1100px) {
-  .hero { grid-template-columns: .5fr 4fr 1.4fr; }
   .film-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .controls { grid-template-columns: 1fr repeat(3, 140px); }
   .view-options { display: none; }
 }
 
 @media (max-width: 720px) {
-  .masthead { min-height: 64px; padding: 0 18px; grid-template-columns: 1fr auto; }
-  .masthead .jp { display: none; }
-  .masthead nav a { display: none; }
-  .hero { min-height: 620px; padding: 70px 20px 34px; grid-template-columns: 1fr; }
-  .hero-number { display: none; }
-  .hero-copy { align-self: end; }
-  h1 { font-size: clamp(55px, 18vw, 88px); }
-  .hero-intro { margin-top: 28px; font-size: 16px; }
-  .hero-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  .hero-meta span { display: block; margin-bottom: 7px; font-size: 21px; }
-  .catalogue { padding: 80px 18px; }
-  .catalogue-head { display: block; }
-  .catalogue-note { margin-top: 26px; }
+  .masthead { min-height: 64px; padding: 0 18px; }
+  .hero { min-height: 230px; padding: 48px 18px 24px; }
+  h1 { font-size: clamp(58px, 19vw, 90px); }
+  .hero > p { display: none; }
+  .catalogue { padding: 18px 18px 80px; }
   .controls { position: static; grid-template-columns: 1fr 1fr; }
   .controls label { border-bottom: 1px solid var(--mist); }
   .controls .search-field { grid-column: 1 / -1; }

@@ -3,7 +3,6 @@ const state = { movies: [], query: "", decade: "all", quality: "all", sort: "yea
 const grid = document.querySelector("#film-grid");
 const empty = document.querySelector("#empty-state");
 const filmDialog = document.querySelector("#film-dialog");
-const aboutDialog = document.querySelector("#about-dialog");
 
 const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (character) => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#039;", '"': "&quot;",
@@ -71,11 +70,8 @@ function populateControls() {
 }
 
 function populateSummary() {
-  const years = state.movies.map((movie) => movie.year).filter(Boolean);
-  const directors = new Set(state.movies.flatMap((movie) => (movie.director || "").split(", ")).filter(Boolean));
   document.querySelector("#edition-count").textContent = state.movies.length;
-  document.querySelector("#year-range").textContent = `${Math.min(...years)}—${Math.max(...years)}`;
-  document.querySelector("#director-count").textContent = directors.size;
+  document.querySelector("#header-count").textContent = state.movies.length;
 }
 
 document.querySelector("#search").addEventListener("input", (event) => { state.query = event.target.value; render(); });
@@ -96,9 +92,7 @@ grid.addEventListener("click", (event) => {
 });
 
 document.querySelector("#dialog-close").addEventListener("click", () => filmDialog.close());
-document.querySelector("#about-open").addEventListener("click", () => aboutDialog.showModal());
-document.querySelector("#about-close").addEventListener("click", () => aboutDialog.close());
-[filmDialog, aboutDialog].forEach((dialog) => dialog.addEventListener("click", (event) => {
+[filmDialog].forEach((dialog) => dialog.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
 }));
 
