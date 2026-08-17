@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A personal moving-image archive, arranged as an editorial catalogue." />
+    <meta name="theme-color" content="#f4f2eb" />
+    <title>Cine Index — A Personal Film Archive</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header class="masthead">
+      <a class="identity" href="#top" aria-label="Cine Index home">
+        <span class="identity-mark">CI</span>
+        <span>Cine Index</span>
+      </a>
+      <p class="jp" lang="ja">映画目録</p>
+      <nav aria-label="Primary navigation">
+        <a href="#catalogue">Catalogue</a>
+        <button class="text-button" id="about-open" type="button">About</button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-number" aria-hidden="true">01</div>
+        <div class="hero-copy">
+          <p class="kicker">Personal moving-image archive · Edition 2026</p>
+          <h1 id="hero-title">Films, arranged as a <em>living catalogue.</em></h1>
+          <p class="hero-intro">A private collection of cinema, restoration, animation and the occasional beautiful anomaly—presented publicly without exposing where the files live.</p>
+        </div>
+        <div class="hero-meta" aria-label="Collection summary">
+          <p><span id="edition-count">—</span> editions</p>
+          <p><span id="year-range">—</span> time span</p>
+          <p><span id="director-count">—</span> directors</p>
+        </div>
+      </section>
+
+      <section class="catalogue" id="catalogue" aria-labelledby="catalogue-title">
+        <header class="catalogue-head">
+          <div>
+            <p class="kicker">The complete shelf</p>
+            <h2 id="catalogue-title">Catalogue</h2>
+          </div>
+          <p class="catalogue-note">Browse by title, filmmaker, year or format.</p>
+        </header>
+
+        <div class="controls" aria-label="Catalogue controls">
+          <label class="search-field">
+            <span>Search</span>
+            <input id="search" type="search" placeholder="Title, director or year" autocomplete="off" />
+          </label>
+          <label>
+            <span>Decade</span>
+            <select id="decade"><option value="all">All decades</option></select>
+          </label>
+          <label>
+            <span>Format</span>
+            <select id="quality"><option value="all">All formats</option></select>
+          </label>
+          <label>
+            <span>Order</span>
+            <select id="sort">
+              <option value="year-asc">Year, earliest</option>
+              <option value="year-desc">Year, latest</option>
+              <option value="title">Title, A–Z</option>
+            </select>
+          </label>
+          <div class="view-options" aria-label="View style">
+            <button class="view-button active" data-view="grid" type="button" aria-pressed="true">Grid</button>
+            <button class="view-button" data-view="list" type="button" aria-pressed="false">Index</button>
+          </div>
+        </div>
+
+        <div class="result-line">
+          <p><strong id="result-count">—</strong> works</p>
+          <span aria-hidden="true"></span>
+        </div>
+
+        <div class="film-grid" id="film-grid" aria-live="polite"></div>
+        <p class="empty-state" id="empty-state" hidden>No works match this selection.</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <p class="footer-title">Cine Index</p>
+        <p>A personal, non-commercial film catalogue.</p>
+      </div>
+      <div class="credits">
+        <img src="./assets/tmdb.svg" alt="TMDB" />
+        <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+      </div>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+
+    <dialog class="film-dialog" id="film-dialog">
+      <button class="dialog-close" id="dialog-close" type="button" aria-label="Close details">Close ×</button>
+      <div class="dialog-layout">
+        <figure><img id="dialog-poster" src="" alt="" /></figure>
+        <div class="dialog-copy">
+          <p class="kicker" id="dialog-kicker"></p>
+          <h2 id="dialog-title"></h2>
+          <p class="dialog-director" id="dialog-director"></p>
+          <p class="dialog-overview" id="dialog-overview"></p>
+          <dl id="dialog-facts"></dl>
+          <a id="dialog-tmdb" href="https://www.themoviedb.org" target="_blank" rel="noreferrer">View on TMDB ↗</a>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="about-dialog" id="about-dialog">
+      <button class="dialog-close" id="about-close" type="button" aria-label="Close about">Close ×</button>
+      <p class="kicker">About this catalogue</p>
+      <h2>A public index of a private archive.</h2>
+      <p>The catalogue shares film information, not storage details. Local paths, filenames, drive names and access credentials are deliberately excluded from this public edition.</p>
+      <p>Metadata and artwork are supplied by <a href="https://www.themoviedb.org" target="_blank" rel="noreferrer">The Movie Database</a>.</p>
+    </dialog>
+  </body>
+</html>
